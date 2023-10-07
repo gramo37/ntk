@@ -1,0 +1,16 @@
+{
+    "apps": [
+      {
+        "name": "next-trip-kuthe",
+        "script": "./server.js",
+        "watch": false,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+        "env": {
+          "PORT": 3000,
+          "HOST": "api",
+          "NODE_ENV": "dev"
+        }
+      }
+    ]
+  }
+  
