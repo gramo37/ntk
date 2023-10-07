@@ -4,10 +4,6 @@ import Home from "./components/Home";
 import Transactions from "./components/Transactions";
 import AddExpense from "./components/AddExpense";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import 'dotenv/config'
-
-// require('dotenv').config()
-console.log(process.env)
 
 
 const queryClient = new QueryClient()
