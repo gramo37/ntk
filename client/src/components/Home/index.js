@@ -18,6 +18,7 @@ import { makeStyles } from "@mui/styles";
 import { formatDate } from "../../utils/common";
 import CloseIcon from "@mui/icons-material/Close";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { host } from "../../constants";
 
 const useStyles = makeStyles({
   button_container: {
@@ -76,7 +77,7 @@ const Home = () => {
     setPage(0);
   };
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <h1>Loading...{host}</h1>;
 
   if (error) return <h1>Something went wrong!!</h1>;
 
