@@ -26,7 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start": "pm2-runtime serve build/ 3000 --name \"nexttripkuthe-ui\" --spa"
+    "start": "pm2 serve build/ 3000 --name \"nexttripkuthe-ui\" --spa"
   },
   "eslintConfig": {
     "extends": [
