@@ -21,6 +21,8 @@ services:
     container_name: ntk-client
     restart: unless-stopped
     image: ntk-client-prod:1.0.0
+    environment:
+      - REACT_APP_HOST=postgres
     build:
       context: client
       dockerfile: Dockerfile
