@@ -1,0 +1,26 @@
+{
+  "name": "next-trip-kuthe",
+  "version": "1.0.0",
+  "description": "A app built for calculation of expenses during picnics",
+  "main": "index.js",
+  "author": "gramo",
+  "license": "MIT",
+  "dependencies": {
+    "@types/express": "^4.17.17",
+    "@types/lodash": "^4.14.197",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "pg": "^8.11.3",
+    "pm2": "^5.3.0",
+    "typescript": "^5.1.6"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start2": "pm2 start ./configs/env-config.json",
+    "start": "pm2-runtime start ./configs/env-config.json",
+    "dev": "cls && yarn build && yarn start && pm2 logs next-trip-kuthe",
+    "start3": "concurrently \"yarn dev\" \"cd frontend && yarn start && cd ..\""
+  }
+}

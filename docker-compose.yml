@@ -1,0 +1,30 @@
+version: "3"
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: password123
+      POSTGRES_USER: user123
+      POSTGRES_DB: db123
+  api:
+    container_name: ntk-api
+    restart: unless-stopped
+    image: ntk-api-prod:1.0.0
+    build:
+      context: api
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    depends_on:
+      - postgres
+  client:
+    container_name: ntk-client
+    restart: unless-stopped
+    image: ntk-client-prod:1.0.0
+    build:
+      context: client
+      dockerfile: Dockerfile
+    ports:
+      - 80:3000
+    depends_on:
+      - api
