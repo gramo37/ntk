@@ -1,6 +1,6 @@
-const express = require('express');
-const fallback = require('express-history-api-fallback');
-const compression = require('compression');
+const express = require("express");
+const fallback = require("express-history-api-fallback");
+const compression = require("compression");
 
 const app = express();
 
