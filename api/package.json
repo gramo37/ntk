@@ -18,9 +18,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "start2": "pm2 start ./configs/env-config.json",
-    "start": "pm2-runtime start ./configs/env-config.json",
-    "dev": "cls && yarn build && yarn start && pm2 logs next-trip-kuthe",
-    "start3": "concurrently \"yarn dev\" \"cd frontend && yarn start && cd ..\""
+    "start:prod": "node ./build/main.js",
+    "start:dev": "nodemon ./build/main.js",
+    "dev": "cls && yarn build && yarn start:dev"
   }
 }

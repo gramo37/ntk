@@ -2,6 +2,9 @@ version: "3"
 services:
   postgres:
     image: postgres
+    ports:
+      - 5432:5432
+    restart: unless-stopped
     environment:
       POSTGRES_PASSWORD: password123
       POSTGRES_USER: user123
@@ -14,18 +17,27 @@ services:
       context: api
       dockerfile: Dockerfile
     ports:
-      - 5000:5000
+      - 8000:8000
     depends_on:
       - postgres
+    environment:
+      DATABASE_USER: user123
+      DATABASE_PASSWORD: password123
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE: db123
+      API_URL: api
+      PORT: 8000
   client:
     container_name: ntk-client
     restart: unless-stopped
     image: ntk-client-prod:1.0.0
-    environment:
-      REACT_APP_API_URL: http://206.189.137.239:5000
     build:
       context: client
       dockerfile: Dockerfile
+      args:
+        REACT_APP_API_URL: ${API_URL}
+        REACT_APP_API_PORT: ${API_PORT}
     ports:
       - 80:3000
     depends_on:
